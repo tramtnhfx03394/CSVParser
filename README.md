@@ -1,4 +1,4 @@
-# Question1_CIC
+# CSVParser
 
 ## Main idea
 - An application that reads data from the CSV file, processes data, caculates and maps it into database
