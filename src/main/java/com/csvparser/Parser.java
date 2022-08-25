@@ -88,7 +88,7 @@ public class Parser {
                 continue;
             }
             if (str.charAt(i - 1) == ' ') {
-                res.add(Character.toUpperCase(str.charAt(0)));
+                res.add(Character.toUpperCase(str.charAt(i)));
                 continue;
             }
             res.add(str.charAt(i));
