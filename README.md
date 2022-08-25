@@ -7,5 +7,5 @@
 
 ## Comment On CSV File
 - Alot of duplicate name, row and empty line
-- Names contain characters that are not usually seen in name like '"' or ','
+- Names contain characters that are not usually seen in names like '"' or ','
 - Big score number
