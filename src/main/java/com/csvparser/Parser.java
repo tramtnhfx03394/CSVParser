@@ -80,6 +80,7 @@ public class Parser {
     }
 
     private static String toPascalCase(String str) {
+        str = str.trim();
         List<Character> res = new ArrayList<>();
         res.add(Character.toUpperCase(str.charAt(0)));
 
