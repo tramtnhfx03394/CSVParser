@@ -1,4 +1,4 @@
-package com.cic.test1.model;
+package com.csvparser.model;
 
 import lombok.Builder;
 import lombok.Data;

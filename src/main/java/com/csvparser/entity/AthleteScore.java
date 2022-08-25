@@ -1,4 +1,4 @@
-package com.cic.test1.entity;
+package com.csvparser.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

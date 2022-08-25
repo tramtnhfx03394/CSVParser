@@ -1,6 +1,6 @@
-package com.cic.test1.repository;
+package com.csvparser.repository;
 
-import com.cic.test1.entity.AthleteScore;
+import com.csvparser.entity.AthleteScore;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AthleteScoreRepository extends JpaRepository<AthleteScore, Integer> {
