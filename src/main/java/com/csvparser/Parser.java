@@ -6,7 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 public class Parser {
     public static void main(String[] args) throws Exception {
         ConfigurableApplicationContext context = SpringApplication.run(Parser.class, args);
-        if (args.length > 0) {
+        if (args.length > 2) {
             Map<String, Long> m = calculateScoreFromInput(args[0]);
 
             AthleteScoreRepository repository = context.getBean(AthleteScoreRepository.class);
@@ -32,14 +31,14 @@ public class Parser {
 
             repository.saveAll(athleteScoreList);
 
-            outputStatsToFile(new ClassPathResource("output_test.csv").getFile(), m);
+            outputStatsToFile(args[2], m);
         }
     }
 
     // calculate each athlete total score from input
-    private static Map<String, Long> calculateScoreFromInput(String filePath) throws Exception {
+    public static Map<String, Long> calculateScoreFromInput(String filePath) throws Exception {
         Map<String, Long> m = new HashMap<>();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ClassPathResource(filePath).getInputStream()));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath)));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             if (line.isEmpty()) continue;
@@ -79,7 +78,8 @@ public class Parser {
         return '0' <= c && c <= '9';
     }
 
-    private static String toPascalCase(String str) {
+
+    public static String toPascalCase(String str) {
         str = str.trim();
         List<Character> res = new ArrayList<>();
         res.add(Character.toUpperCase(str.charAt(0)));
@@ -99,8 +99,8 @@ public class Parser {
                 .collect(Collectors.joining());
     }
 
-    private static void outputStatsToFile(File file, Map<String, Long> data) throws Exception {
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+    public static void outputStatsToFile(String fileName, Map<String, Long> data) throws Exception {
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName)));
         long highScore = 0;
         String topAthlete = "";
 
