@@ -78,7 +78,6 @@ public class Parser {
         return '0' <= c && c <= '9';
     }
 
-
     public static String toPascalCase(String str) {
         str = str.trim();
         List<Character> res = new ArrayList<>();

@@ -1,0 +1,5 @@
+Bob with total score: 100
+Alice with total score: 1000
+John with total score: 400
+Total athlete: 3
+Top score: Athlete Alice with 1000
