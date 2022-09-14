@@ -9,3 +9,4 @@
 - Alot of duplicate name, row and empty line
 - Names contain characters that's not usually seen in name like '"' or ','
 - Big score number
+- ...
